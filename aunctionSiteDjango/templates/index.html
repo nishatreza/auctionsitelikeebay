@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "images" as imageUrl  %}
+
+
+{% block content %}
+
+    <section style="margin-top:30px;" class="section" id="men">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Products Latest</h2>
+                        <span>Details to details is what makes Products different from the other.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+      {% for product in products %}
+
+                <div class="col-md-4">
+<div class="card" style="width: 18rem;">
+
+  <img src="{{product.img.url}}" class="card-img-top" alt="...">
+
+    {% if product.offer %}
+       <h5><span class="badge badge-info" style="width:100%;">Open</span></h5>
+    {% else %}
+        <h5><span class="badge badge-info" style="width:100%;">Sold</span></h5>
+
+    {% endif %}
+
+
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.desc}}</p>
+          <p class="card-text">Price: ${{product.price}}</p>
+
+    <a href="single-product.html" class="btn btn-primary">Show Product</a>
+  </div>
+</div>
+                </div>
+
+                {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
