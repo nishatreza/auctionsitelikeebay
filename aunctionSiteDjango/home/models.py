@@ -1,13 +1,18 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Product(models.Model):
-   name = models.CharField(max_length=100)
-   img = models.ImageField(upload_to='pics')
-   desc = models.TextField()
-   price = models.IntegerField()
-   offer = models.BooleanField(default=False)
-   end_date = models.DateField()
+    name = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='pics')
+    desc = models.TextField()
+    price = models.IntegerField()
+    offer = models.BooleanField(default=False)
+    end_date = models.DateField()
+
+    # def __str__(self):
+    #    return self.title
 
 
 
